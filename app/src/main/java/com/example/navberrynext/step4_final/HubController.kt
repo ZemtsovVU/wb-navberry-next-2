@@ -1,4 +1,4 @@
-package com.example.navberrynext.shared.step3
+package com.example.navberrynext.step4_final
 
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import java.util.Stack
 
 @Suppress("MemberVisibilityCanBePrivate", "PropertyName")
-abstract class HubController(private val initialDest: String) {
+abstract class HubControllerS4(private val initialDest: String) {
 
     protected val backstack = Stack<String>()
 
@@ -21,24 +21,25 @@ abstract class HubController(private val initialDest: String) {
         }
     }
 
-    fun navigateForward() {
-        backstack.push(currentDest.value)
-        navigateNext()
+    fun onComplete(reason: String) {
+        val prevDest = currentDest.value
+        val shouldPushToBackstack = onCompleteInner(reason)
+        if (shouldPushToBackstack) backstack.push(prevDest)
     }
 
-    protected abstract fun navigateNext()
+    protected abstract fun onCompleteInner(reason: String): Boolean
 
-    fun navigateBackward() {
+    fun onBack() {
         if (backstack.empty()) {
             _currentDest.value = "RequestFinish"
         } else {
             val prevDest = backstack.pop()
-            onNavigateBackward(currentDest.value, prevDest)
+            onBackInner(currentDest.value, prevDest)
             _currentDest.value = prevDest
         }
     }
 
-    protected open fun onNavigateBackward(
+    protected open fun onBackInner(
         currentDest: String,
         previousDest: String,
     ) = Unit

@@ -1,8 +1,6 @@
-package com.example.navberrynext.step4
+package com.example.navberrynext.step4_final
 
-import com.example.navberrynext.shared.step3.HubController
-
-class RootHubControllerS4 : HubController("RootScreenA") {
+class RootHubControllerS4 : HubControllerS4("RootScreenA") {
 
     // TODO We can use factory to encapsulate this
     private var _flowAController: FlowAHubControllerS4? = null
@@ -23,16 +21,22 @@ class RootHubControllerS4 : HubController("RootScreenA") {
             return _flowBController!!
         }
 
-    // TODO How should we understand which next direction to choose?
-    override fun navigateNext() {
-        when (currentDest.value) {
-            "RootScreenA" -> _currentDest.value = "RootScreenB"
-            "RootScreenB" -> _currentDest.value = "RootFlowA"
-            "RootFlowA" -> _currentDest.value = "RootFlowB"
+    override fun onCompleteInner(reason: String): Boolean {
+        when (reason) {
+            "RootScreenA_onNextScreenClicked" -> _currentDest.value = "RootScreenB"
+            "RootScreenB_onNextFlowClicked" -> _currentDest.value = "RootFlowA"
+            "RootFlowA_onNextFlowClicked" -> _currentDest.value = "RootFlowB"
+            else -> error("Unknown reason")
         }
+        return true
     }
 
-    override fun onNavigateBackward(
+    //fun onRootScreenAOnNextScreenClicked() {
+    //    backstack.push(currentDest.value)
+    //    _currentDest.value = "RootScreenB"
+    //}
+
+    override fun onBackInner(
         currentDest: String,
         previousDest: String,
     ) {

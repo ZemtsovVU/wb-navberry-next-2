@@ -1,8 +1,6 @@
 package com.example.navberrynext.step3_nav_controller
 
-import com.example.navberrynext.shared.step3.HubController
-
-class RootHubControllerS3 : HubController("RootScreenA") {
+class RootHubControllerS3 : HubControllerS3("RootScreenA") {
 
     // TODO We can use factory to encapsulate this
     private var _flowAController: FlowAHubControllerS3? = null

@@ -1,4 +1,4 @@
-package com.example.navberrynext.step4
+package com.example.navberrynext.step4_final
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
@@ -23,7 +23,7 @@ fun FlowBHubS4(
             FlowBScreenA(
                 modifier = modifier,
                 onNextScreenClick = {
-                    controller.navigateForward()
+                    controller.onComplete("FlowBScreenA_onNextScreenClicked")
                 },
             )
         }
@@ -43,6 +43,6 @@ fun FlowBHubS4(
     }
 
     BackHandler {
-        controller.navigateBackward()
+        controller.onBack()
     }
 }

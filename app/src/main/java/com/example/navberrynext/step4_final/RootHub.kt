@@ -1,4 +1,4 @@
-package com.example.navberrynext.step4
+package com.example.navberrynext.step4_final
 
 import android.content.Context
 import android.widget.Toast
@@ -29,7 +29,8 @@ fun RootHubS4(
             RootScreenA(
                 modifier = modifier,
                 onNextScreenClick = {
-                    controller.navigateForward()
+                    controller.onComplete("RootScreenA_onNextScreenClicked")
+                    //controller.onRootScreenAOnNextScreenClicked()
                 },
             )
         }
@@ -38,20 +39,21 @@ fun RootHubS4(
             RootScreenB(
                 modifier = modifier,
                 onNextFlowClick = {
-                    controller.navigateForward()
+                    controller.onComplete("RootScreenB_onNextFlowClicked")
                 },
             )
         }
 
         "RootFlowA" -> {
             FlowAHubS4(
+                // TODO We can use factory to encapsulate this
                 controller = controller.flowAController,
                 modifier = modifier,
                 onNextFlowClick = {
-                    controller.navigateForward()
+                    controller.onComplete("RootFlowA_onNextFlowClicked")
                 },
                 onRequestFinish = {
-                    controller.navigateBackward()
+                    controller.onBack()
                 },
             )
         }
@@ -68,7 +70,7 @@ fun RootHubS4(
                     ).show()
                 },
                 onRequestFinish = {
-                    controller.navigateBackward()
+                    controller.onBack()
                 },
             )
         }
@@ -79,6 +81,6 @@ fun RootHubS4(
     }
 
     BackHandler {
-        controller.navigateBackward()
+        controller.onBack()
     }
 }

@@ -8,8 +8,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
-import com.example.navberrynext.step4.RootHubControllerS4
-import com.example.navberrynext.step4.RootHubS4
+import com.example.navberrynext.step4_final.RootHubControllerS4
+import com.example.navberrynext.step4_final.RootHubS4
 import com.example.navberrynext.ui.theme.Wbnavberrynext2Theme
 
 class MainActivity : ComponentActivity() {
