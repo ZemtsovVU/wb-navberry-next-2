@@ -1,6 +1,6 @@
-package com.example.navberrynext.step4_final
+package com.example.navberrynext.step5_nav_animations
 
-class FlowBHubControllerS4 : HubControllerS4("FlowBScreenA") {
+class FlowBHubControllerS5 : HubControllerS5("FlowBScreenA") {
 
     override fun onCompleteInner(reason: String): Boolean {
         when (reason) {

@@ -1,4 +1,4 @@
-package com.example.navberrynext.step4_final
+package com.example.navberrynext.step5_nav_animations
 
 import android.content.Context
 import android.widget.Toast
@@ -10,8 +10,8 @@ import com.example.navberrynext.shared.RootScreenA
 import com.example.navberrynext.shared.RootScreenB
 
 @Composable
-fun RootHubS4(
-    controller: RootHubControllerS4,
+fun RootHubS5(
+    controller: RootHubControllerS5,
     context: Context,
     modifier: Modifier,
     onRequestFinish: () -> Unit,
@@ -45,7 +45,7 @@ fun RootHubS4(
         }
 
         "RootFlowA" -> {
-            FlowAHubS4(
+            FlowAHubS5(
                 // TODO We can use factory to encapsulate this
                 controller = controller.flowAController,
                 modifier = modifier,
@@ -59,7 +59,7 @@ fun RootHubS4(
         }
 
         "RootFlowB" -> {
-            FlowBHubS4(
+            FlowBHubS5(
                 controller = controller.flowBController,
                 modifier = modifier,
                 onButtonClick = {

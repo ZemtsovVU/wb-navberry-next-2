@@ -1,4 +1,4 @@
-package com.example.navberrynext.step4_final
+package com.example.navberrynext.step4_nav_controller_2
 
 class RootHubControllerS4 : HubControllerS4("RootScreenA") {
 

@@ -8,8 +8,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
-import com.example.navberrynext.step4_final.RootHubControllerS4
-import com.example.navberrynext.step4_final.RootHubS4
+import com.example.navberrynext.step5_nav_animations.RootHubControllerS5
+import com.example.navberrynext.step5_nav_animations.RootHubS5
 import com.example.navberrynext.ui.theme.Wbnavberrynext2Theme
 
 class MainActivity : ComponentActivity() {
@@ -37,8 +37,16 @@ class MainActivity : ComponentActivity() {
                     //    onRequestFinish = { finish() },
                     //)
 
-                    val controller = RootHubControllerS4()
-                    RootHubS4(
+                    //val controller = RootHubControllerS4()
+                    //RootHubS4(
+                    //    controller = controller,
+                    //    context = this,
+                    //    modifier = Modifier.padding(innerPadding),
+                    //    onRequestFinish = { finish() },
+                    //)
+
+                    val controller = RootHubControllerS5()
+                    RootHubS5(
                         controller = controller,
                         context = this,
                         modifier = Modifier.padding(innerPadding),
