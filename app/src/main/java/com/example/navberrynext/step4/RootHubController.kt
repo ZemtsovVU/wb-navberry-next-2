@@ -1,24 +1,24 @@
-package com.example.navberrynext.step3_nav_controller
+package com.example.navberrynext.step4
 
 import com.example.navberrynext.shared.step3.HubController
 
-class RootHubControllerS3 : HubController("RootScreenA") {
+class RootHubControllerS4 : HubController("RootScreenA") {
 
     // TODO We can use factory to encapsulate this
-    private var _flowAController: FlowAHubControllerS3? = null
-    val flowAController: FlowAHubControllerS3
+    private var _flowAController: FlowAHubControllerS4? = null
+    val flowAController: FlowAHubControllerS4
         get() {
             if (_flowAController == null) {
-                _flowAController = FlowAHubControllerS3()
+                _flowAController = FlowAHubControllerS4()
             }
             return _flowAController!!
         }
 
-    private var _flowBController: FlowBHubControllerS3? = null
-    val flowBController: FlowBHubControllerS3
+    private var _flowBController: FlowBHubControllerS4? = null
+    val flowBController: FlowBHubControllerS4
         get() {
             if (_flowBController == null) {
-                _flowBController = FlowBHubControllerS3()
+                _flowBController = FlowBHubControllerS4()
             }
             return _flowBController!!
         }

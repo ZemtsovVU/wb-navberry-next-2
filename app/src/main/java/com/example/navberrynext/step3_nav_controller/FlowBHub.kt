@@ -9,7 +9,7 @@ import com.example.navberrynext.shared.FlowBScreenB
 
 @Composable
 fun FlowBHubS3(
-    controller: FlowBHubController,
+    controller: FlowBHubControllerS3,
     modifier: Modifier,
     onButtonClick: () -> Unit,
     onRequestFinish: () -> Unit,

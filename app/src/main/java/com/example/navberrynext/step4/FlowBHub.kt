@@ -1,26 +1,26 @@
-package com.example.navberrynext.step3_nav_controller
+package com.example.navberrynext.step4
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
-import com.example.navberrynext.shared.FlowAScreenA
-import com.example.navberrynext.shared.FlowAScreenB
+import com.example.navberrynext.shared.FlowBScreenA
+import com.example.navberrynext.shared.FlowBScreenB
 
 @Composable
-fun FlowAHubS3(
-    controller: FlowAHubControllerS3,
+fun FlowBHubS4(
+    controller: FlowBHubControllerS4,
     modifier: Modifier,
-    onNextFlowClick: () -> Unit,
+    onButtonClick: () -> Unit,
     onRequestFinish: () -> Unit,
 ) {
     val currentDest = controller.currentDest.collectAsState()
 
-    print("FlowAHub currentDest = ${currentDest.value}\n")
+    print("FlowBHub currentDest = ${currentDest.value}\n")
 
     when (currentDest.value) {
-        "FlowAScreenA" -> {
-            FlowAScreenA(
+        "FlowBScreenA" -> {
+            FlowBScreenA(
                 modifier = modifier,
                 onNextScreenClick = {
                     controller.navigateForward()
@@ -28,17 +28,13 @@ fun FlowAHubS3(
             )
         }
 
-        "FlowAScreenB" -> {
-            FlowAScreenB(
+        "FlowBScreenB" -> {
+            FlowBScreenB(
                 modifier = modifier,
-                onNextFlowClick = {
-                    controller.navigateForward()
+                onButtonClick = {
+                    onButtonClick()
                 },
             )
-        }
-
-        "RequestNextFlow" -> {
-            onNextFlowClick()
         }
 
         "RequestFinish" -> {

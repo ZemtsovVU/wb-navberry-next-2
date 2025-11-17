@@ -1,4 +1,4 @@
-package com.example.navberrynext.step3_nav_controller
+package com.example.navberrynext.step4
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
@@ -8,8 +8,8 @@ import com.example.navberrynext.shared.FlowAScreenA
 import com.example.navberrynext.shared.FlowAScreenB
 
 @Composable
-fun FlowAHubS3(
-    controller: FlowAHubControllerS3,
+fun FlowAHubS4(
+    controller: FlowAHubControllerS4,
     modifier: Modifier,
     onNextFlowClick: () -> Unit,
     onRequestFinish: () -> Unit,

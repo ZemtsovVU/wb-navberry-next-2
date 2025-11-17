@@ -1,4 +1,4 @@
-package com.example.navberrynext.step3_nav_controller
+package com.example.navberrynext.step4
 
 import android.content.Context
 import android.widget.Toast
@@ -10,8 +10,8 @@ import com.example.navberrynext.shared.RootScreenA
 import com.example.navberrynext.shared.RootScreenB
 
 @Composable
-fun RootHubS3(
-    controller: RootHubControllerS3,
+fun RootHubS4(
+    controller: RootHubControllerS4,
     context: Context,
     modifier: Modifier,
     onRequestFinish: () -> Unit,
@@ -44,7 +44,7 @@ fun RootHubS3(
         }
 
         "RootFlowA" -> {
-            FlowAHubS3(
+            FlowAHubS4(
                 controller = controller.flowAController,
                 modifier = modifier,
                 onNextFlowClick = {
@@ -57,7 +57,7 @@ fun RootHubS3(
         }
 
         "RootFlowB" -> {
-            FlowBHubS3(
+            FlowBHubS4(
                 controller = controller.flowBController,
                 modifier = modifier,
                 onButtonClick = {

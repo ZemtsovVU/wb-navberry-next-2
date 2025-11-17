@@ -1,8 +1,8 @@
-package com.example.navberrynext.step3_nav_controller
+package com.example.navberrynext.step4
 
 import com.example.navberrynext.shared.step3.HubController
 
-class FlowAHubControllerS3 : HubController("FlowAScreenA") {
+class FlowAHubControllerS4 : HubController("FlowAScreenA") {
 
     override fun navigateNext() {
         when (currentDest.value) {

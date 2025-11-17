@@ -1,4 +1,4 @@
-package com.example.navberrynext.step3_nav_controller
+package com.example.navberrynext.shared.step3
 
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
