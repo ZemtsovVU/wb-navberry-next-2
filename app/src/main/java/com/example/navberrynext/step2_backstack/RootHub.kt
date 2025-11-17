@@ -1,5 +1,7 @@
 package com.example.navberrynext.step2_backstack
 
+import android.app.Activity
+import android.widget.Toast
 import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -7,6 +9,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import com.example.navberrynext.shared.RootScreenA
 import com.example.navberrynext.shared.RootScreenB
 import java.util.Stack
@@ -15,15 +18,18 @@ private val backstack = Stack<String>()
 
 @Composable
 fun RootHubS2(
+    activity: Activity,
     modifier: Modifier,
     onRequestFinish: () -> Unit,
 ) {
     var currentDest by remember { mutableStateOf("RootScreenA") }
+    var isBack by remember { mutableStateOf(false) }
 
     fun handleBack() {
         if (backstack.empty()) {
             onRequestFinish()
         } else {
+            isBack = true
             val dest = backstack.pop()
             currentDest = dest
         }
@@ -51,11 +57,9 @@ fun RootHubS2(
         }
 
         "RootFlowA" -> {
-            // TODO We need to provide some info to child hub about required
-            //  action, e.g. launch, back, or exact screen. Should root hub
-            //  have knowledge about child hub flow?
             FlowAHubS2(
                 modifier = modifier,
+                isBack = isBack,
                 onNextFlowClick = {
                     // TODO DRY
                     backstack.push(currentDest)
@@ -70,13 +74,21 @@ fun RootHubS2(
         "RootFlowB" -> {
             FlowBHubS2(
                 modifier = modifier,
-                onButtonClick = { /* do nothing */ },
+                isBack = isBack,
+                onButtonClick = {
+                    Toast.makeText(
+                        activity,
+                        "FlowBScreenB button clicked",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                },
                 onRequestFinish = {
                     handleBack()
                 },
             )
         }
     }
+    isBack = false
 
     BackHandler {
         handleBack()

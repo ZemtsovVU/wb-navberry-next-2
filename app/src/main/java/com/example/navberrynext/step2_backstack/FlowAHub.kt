@@ -16,10 +16,18 @@ private val backstack = Stack<String>()
 @Composable
 fun FlowAHubS2(
     modifier: Modifier,
+    isBack: Boolean,
     onNextFlowClick: () -> Unit,
     onRequestFinish: () -> Unit,
 ) {
-    var currentDest by remember { mutableStateOf("FlowAScreenA") }
+    var currentDest by remember {
+        if (isBack) {
+            val dest = backstack.pop()
+            mutableStateOf(dest)
+        } else {
+            mutableStateOf("FlowAScreenA")
+        }
+    }
 
     when (currentDest) {
         "FlowAScreenA" -> {

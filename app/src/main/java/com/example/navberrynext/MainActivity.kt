@@ -24,6 +24,7 @@ class MainActivity : ComponentActivity() {
                     //)
 
                     RootHubS2(
+                        activity = this,
                         modifier = Modifier.padding(innerPadding),
                         onRequestFinish = { finish() },
                     )
