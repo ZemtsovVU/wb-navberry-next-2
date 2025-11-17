@@ -13,6 +13,15 @@ abstract class HubControllerS5(private val initialDest: String) {
     protected val _currentDest = MutableStateFlow(initialDest)
     val currentDest: StateFlow<String> = _currentDest.asStateFlow()
 
+    protected val _currentDestData = MutableStateFlow(
+        DestData(
+            prevDest = "",
+            fromDest = "",
+            toDest = initialDest
+        )
+    )
+    val currentDestData: StateFlow<DestData> = _currentDestData.asStateFlow()
+
     fun onStart() {
         if (backstack.empty()) {
             _currentDest.value = initialDest
@@ -43,4 +52,18 @@ abstract class HubControllerS5(private val initialDest: String) {
         currentDest: String,
         previousDest: String,
     ) = Unit
+}
+
+data class DestData(
+    // for iPhone-like back gesture
+    val prevDest: String,
+
+    val fromDest: String,
+    val toDest: String,
+    val direction: DestDirection = DestDirection.FORWARD,
+)
+
+enum class DestDirection {
+    FORWARD,
+    BACKWARD,
 }
