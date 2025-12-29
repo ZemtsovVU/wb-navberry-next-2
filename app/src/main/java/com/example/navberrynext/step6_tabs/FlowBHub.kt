@@ -1,4 +1,4 @@
-package com.example.navberrynext.step5_nav_animations
+package com.example.navberrynext.step6_tabs
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
@@ -8,8 +8,8 @@ import com.example.navberrynext.shared.FlowBScreenA
 import com.example.navberrynext.shared.FlowBScreenB
 
 @Composable
-fun FlowBHubS5(
-    controller: FlowBHubControllerS5,
+fun FlowBHubS6(
+    controller: FlowBHubControllerS6,
     modifier: Modifier,
     onButtonClick: () -> Unit,
     onRequestFinish: () -> Unit,

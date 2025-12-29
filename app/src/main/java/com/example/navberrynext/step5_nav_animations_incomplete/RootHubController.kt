@@ -1,4 +1,4 @@
-package com.example.navberrynext.step5_nav_animations
+package com.example.navberrynext.step5_nav_animations_incomplete
 
 class RootHubControllerS5 : HubControllerS5("RootScreenA") {
 
